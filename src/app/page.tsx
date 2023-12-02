@@ -1,7 +1,11 @@
 export default function Home() {
   return (
-    <main>
-      <h1>Main Page</h1>
-    </main>
-  )
+    <>
+      <header className="container bg-textDark text-white">Header</header>
+      <main className="container">
+        <h1>Main Page</h1>
+      </main>
+      <footer className="container bg-textDark text-white">Footer</footer>
+    </>
+  );
 }

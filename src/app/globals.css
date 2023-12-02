@@ -1,3 +1,81 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --text-dark: #403F3D;
+  --bg-body: #E1D4C9;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+
+  color: var(--text-dark);
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+
+  background-color: var(--bg-body);
+}
+
+body > main {
+  flex-grow: 1;
+}
+
+.container {
+  max-width: 1440px;
+
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/* Font classes */
+
+.heading-1 {
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 105%;
+}
+
+.heading-1-mobile {
+  font-size: 42px;
+  line-height: 115%;
+}
+
+.heading-2 {
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+.heading-2-mobile {
+  font-size: 32px;
+}
+
+.heading-3 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+.caption {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 140%;
+}
+
+.burger-link {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 125%;
+}
