@@ -1,11 +1,6 @@
 import { ComponentProps, ElementType, ReactNode } from 'react';
 import Link from 'next/link';
 
-export const enum MY_LINK_VIEW {
-  DARK = 'dark',
-  LIGHT = 'light',
-}
-
 type MyLinkOwnProps<E extends ElementType = ElementType> = {
   className?: string;
   view?: MY_LINK_VIEW;
@@ -19,6 +14,11 @@ type MyLinkProps<E extends ElementType> = MyLinkOwnProps<E> &
   Omit<ComponentProps<E>, keyof MyLinkOwnProps>;
 
 const DEFAULT_ELEMENT = Link;
+
+export const enum MY_LINK_VIEW {
+  DARK = 'dark',
+  LIGHT = 'light',
+}
 
 export default function MyLink<E extends ElementType = typeof DEFAULT_ELEMENT>({
   className,
