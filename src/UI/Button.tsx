@@ -1,10 +1,5 @@
 import { ReactNode, ComponentProps, ElementType } from 'react';
 
-export const enum BUTTON_VIEW {
-  PRIMARY = 'primary',
-  SECONDARY = 'secondary',
-}
-
 type ButtonOwnProps<E extends ElementType = ElementType> = {
   className?: string;
   children: ReactNode;
@@ -16,6 +11,11 @@ type ButtonProps<E extends ElementType> = ButtonOwnProps<E> &
   Omit<ComponentProps<E>, keyof ButtonOwnProps>;
 
 const DEFAULT_ELEMENT = 'button';
+
+export const enum BUTTON_VIEW {
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
+}
 
 export default function Button<E extends ElementType = typeof DEFAULT_ELEMENT>({
   className,
