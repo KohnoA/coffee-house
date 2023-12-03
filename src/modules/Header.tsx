@@ -1,13 +1,20 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from '@/UI/Button';
+import { usePathname } from 'next/navigation';
+import MyLink from '@/UI/MyLink';
 
 import { APP_ROUTES } from '@/constants/routes';
 
 const APP_LOGO_PATH = '/icons/logo.svg';
 const MENU_ICON = '/icons/coffee-cup.svg';
+const MAIN_ICON = '/icons/main.svg';
 
 export default function Header() {
+  const pathname = usePathname();
+
   return (
     <header className="container mb-[20px]">
       <nav>
@@ -28,24 +35,37 @@ export default function Header() {
           </li>
 
           <li>
-            <ul className="flex items-center gap-6">
+            <ul className="flex items-center gap-8">
               <li>
-                <Link
-                  href={APP_ROUTES.MENU}
-                  className="relative flex gap-1 items-center py-1 transition-opacity group active:opacity-75"
+                <MyLink
+                  href={APP_ROUTES.MAIN}
+                  isActive={pathname === APP_ROUTES.MAIN}
                 >
-                  Menu{' '}
+                  Main
+                  <Image
+                    src={MAIN_ICON}
+                    width={20}
+                    height={20}
+                    alt="Coffee Cup"
+                  />
+                </MyLink>
+              </li>
+              <li>
+                <MyLink
+                  href={APP_ROUTES.MENU}
+                  isActive={pathname === APP_ROUTES.MENU}
+                >
+                  Menu
                   <Image
                     src={MENU_ICON}
                     width={20}
                     height={20}
                     alt="Coffee Cup"
                   />
-                  <span className="absolute left-0 bottom-0 w-0 h-[3px] bg-textDark transition-all group-hover:w-full" />
-                </Link>
+                </MyLink>
               </li>
               <li>
-                <Button className='py-[10px] px-[40px]'>Sign In</Button>
+                <Button className="py-[10px] px-[40px]">Sign In</Button>
               </li>
             </ul>
           </li>
