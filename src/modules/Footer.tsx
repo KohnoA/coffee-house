@@ -8,7 +8,7 @@ export default function Footer() {
         <div>
           <h2 className="heading-2 flex flex-col mb-[40px]">
             Sip, Savor, Smile.
-            <span className="text-textAccent">It’s coffee time!</span>
+            <span className="text-textAccent italic">It’s coffee time!</span>
           </h2>
 
           <SocialList />
