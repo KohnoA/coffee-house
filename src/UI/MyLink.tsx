@@ -40,7 +40,11 @@ export default function MyLink<E extends ElementType = typeof DEFAULT_ELEMENT>({
       } ${className ?? ''}`}
     >
       {children}
-      <span className={`absolute left-0 bottom-0 w-0 h-[3px] bg-textDark transition-all group-hover:w-full ${isActive ? 'w-full' : ''}`} />
+      <span
+        className={`absolute left-0 bottom-0 w-0 h-[3px] ${
+          view === MY_LINK_VIEW.DARK ? 'bg-textDark' : 'bg-textLight'
+        } transition-all group-hover:w-full ${isActive ? 'w-full' : ''}`}
+      />
     </Element>
   );
 }
