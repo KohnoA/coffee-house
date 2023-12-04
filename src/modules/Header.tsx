@@ -2,15 +2,16 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import Button from '@/UI/Button';
 import { usePathname } from 'next/navigation';
+
+import Button from '@/UI/Button';
 import MyLink from '@/UI/MyLink';
+import MainIcon from '@/components/icons/MainIcon';
+import CoffeeCupIcon from '@/components/icons/CoffeeCupIcon';
 
 import { APP_ROUTES } from '@/constants/routes';
 
 const APP_LOGO_PATH = '/icons/logo.svg';
-const MENU_ICON = '/icons/coffee-cup.svg';
-const MAIN_ICON = '/icons/main.svg';
 
 export default function Header() {
   const pathname = usePathname();
@@ -42,12 +43,7 @@ export default function Header() {
                   isActive={pathname === APP_ROUTES.MAIN}
                 >
                   Main
-                  <Image
-                    src={MAIN_ICON}
-                    width={20}
-                    height={20}
-                    alt="Coffee Cup"
-                  />
+                  <MainIcon width={20} height={20} />
                 </MyLink>
               </li>
               <li>
@@ -56,12 +52,7 @@ export default function Header() {
                   isActive={pathname === APP_ROUTES.MENU}
                 >
                   Menu
-                  <Image
-                    src={MENU_ICON}
-                    width={20}
-                    height={20}
-                    alt="Coffee Cup"
-                  />
+                  <CoffeeCupIcon width={20} height={20} />
                 </MyLink>
               </li>
               <li>
