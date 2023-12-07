@@ -31,9 +31,9 @@ export default function Button<E extends ElementType = typeof DEFAULT_ELEMENT>({
       {...otherProps}
       className={`${
         view === BUTTON_VIEW.PRIMARY
-          ? 'py-[20px] px-[78px] bg-bgBody text-textDark'
+          ? 'py-[20px] px-[78px] bg-bgBody text-textDark transition-colors hover:bg-[#D3C5B9]'
           : 'py-[10px] px-[77.5px] text-textDark border-2 border-borderDark bg-transparent transition-colors hover:text-textLight hover:bg-bgContainer active:bg-textDark active:border-textDark'
-      } inline-block rounded-full ${className ?? ''}`}
+      } font-semibold inline-block rounded-full ${className ?? ''}`}
     >
       {children}
     </Element>

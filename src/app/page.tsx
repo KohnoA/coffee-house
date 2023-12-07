@@ -1,7 +1,9 @@
+import Promo from '@/modules/Promo';
+
 export default function Home() {
   return (
     <main className="container">
-      <h1>Main Page</h1>
+      <Promo />
     </main>
   );
 }
