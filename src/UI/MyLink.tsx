@@ -35,7 +35,7 @@ export default function MyLink<E extends ElementType = typeof DEFAULT_ELEMENT>({
     <Element
       href={href}
       {...otherProps}
-      className={`relative flex gap-1 items-center py-1 transition-opacity group active:opacity-75 ${
+      className={`relative flex gap-1 items-center py-1.5 transition-opacity group active:opacity-75 ${
         isActive ? 'pointer-events-none' : ''
       } ${className ?? ''}`}
     >

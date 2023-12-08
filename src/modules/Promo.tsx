@@ -1,4 +1,5 @@
 import Button, { BUTTON_VIEW } from '@/UI/Button';
+import Title from '@/UI/Title';
 import ArrowRight from '@/components/icons/ArrowRight';
 import { APP_ROUTES } from '@/constants/routes';
 import Image from 'next/image';
@@ -10,10 +11,10 @@ export default function Promo() {
   return (
     <section className="relative flex justify-start items-start mb-[100px] py-[100px] px-[100px] text-textLight rounded-[40px] overflow-hidden">
       <div className="max-w-[530px]">
-        <h2 className="heading-1 mb-[40px]">
+        <Title level={2}>
           <span className="text-textAccent italic">Enjoy</span> premium coffee
           at our charming cafe
-        </h2>
+        </Title>
         <p className="mb-[40px]">
           With its inviting atmosphere and delicious coffee options, the Coffee
           House Resource is a popular destination for coffee lovers and those

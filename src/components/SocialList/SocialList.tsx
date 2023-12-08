@@ -10,9 +10,13 @@ const dataForSocialList = [
   { Icon: FacebookIcon, href: AUTHOR_LINKEDIN },
 ];
 
-export default function SocialList() {
+interface SocialListProps {
+  className?: string;
+}
+
+export default function SocialList({ className }: SocialListProps) {
   return (
-    <ul className="flex gap-[12px]">
+    <ul className={`flex gap-[12px] ${className ? className : ''}`}>
       {dataForSocialList.map(({ Icon, href }, index) => (
         <li key={index}>
           <a
