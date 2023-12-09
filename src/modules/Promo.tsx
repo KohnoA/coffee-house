@@ -9,8 +9,8 @@ const BG_PATH = '/images/promo.jpg';
 
 export default function Promo() {
   return (
-    <section className="relative flex justify-start items-start mb-[100px] py-[100px] px-[100px] text-textLight rounded-[40px] overflow-hidden">
-      <div className="max-w-[530px]">
+    <section className="relative flex justify-start items-start mb-[100px] py-[100px] px-[100px] text-textLight rounded-[40px] overflow-hidden bg-bgContainer">
+      <div className="relative z-10 max-w-[530px]">
         <Title level={2}>
           <span className="text-textAccent italic">Enjoy</span> premium coffee
           at our charming cafe
@@ -38,7 +38,6 @@ export default function Promo() {
       </div>
 
       <Image
-        className="-z-10"
         src={BG_PATH}
         fill
         sizes="1360px"
