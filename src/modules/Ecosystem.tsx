@@ -59,6 +59,7 @@ export default function Ecosystem() {
           className="row-start-2 row-end-3"
           src={BG_IMAGE_PATH}
           fill
+          sizes="630px"
           alt="Modile App"
         />
       </div>
