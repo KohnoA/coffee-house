@@ -9,9 +9,9 @@ export default function ArrowRight({ width, height, className }: IconProps) {
       fill="none"
       className={className}
       viewBox="0 0 20 20"
+      stroke="#403F3D"
     >
       <path
-        stroke="#403F3D"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="1.5"

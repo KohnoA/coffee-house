@@ -20,6 +20,12 @@ const config: Config = {
         borderLight: '#C1B6AD',
         borderDark: '#665F55',
       },
+      keyframes: {
+        filling: {
+          '0%': { transform: 'translateX(-100%)'},
+          '100%': { transform: 'translate(0)' },
+        }
+      },
       gridTemplateRows: {
         '7': 'repeat(7, minmax(0, 1fr))',
       },

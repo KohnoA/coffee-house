@@ -1,0 +1,1 @@
+export { getCorrectPrice } from './getCorrectPrice';
