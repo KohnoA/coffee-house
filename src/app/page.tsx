@@ -1,4 +1,5 @@
 import About from '@/modules/About';
+import Ecosystem from '@/modules/Ecosystem';
 import Promo from '@/modules/Promo';
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <main className="container">
       <Promo />
       <About />
+      <Ecosystem />
     </main>
   );
 }

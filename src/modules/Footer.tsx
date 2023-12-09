@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="container mb-[40px]">
       <div className="flex wrap items-center gap-[100px] py-[100px] px-[100px] text-textLight bg-bgContainer rounded-[40px]">
         <div>
-          <Title level={2} className="flex flex-col gap-2">
+          <Title level={2} size={2} className="flex flex-col gap-2">
             Sip, Savor, Smile.
             <span className="text-textAccent italic">It’s coffee time!</span>
           </Title>
