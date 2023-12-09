@@ -20,6 +20,9 @@ const config: Config = {
         borderLight: '#C1B6AD',
         borderDark: '#665F55',
       },
+      gridTemplateRows: {
+        '7': 'repeat(7, minmax(0, 1fr))',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
