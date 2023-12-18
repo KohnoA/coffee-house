@@ -2,7 +2,7 @@ import { Slider, SliderItem } from '@/UI/Slider';
 import Title from '@/UI/Title';
 import Image from 'next/image';
 import { getCorrectPrice } from '@/helpers';
-import newProductsData from '@/assets/data/newProducts.json';
+import newProductsData from '@/db/newProducts.json';
 
 export default function NewProducts() {
   return (

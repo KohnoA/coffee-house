@@ -23,7 +23,7 @@ const config: Config = {
       keyframes: {
         filling: {
           '0%': { transform: 'translateX(-100%)'},
-          '100%': { transform: 'translate(0)' },
+          '100%': { transform: 'translateX(0)' },
         }
       },
       gridTemplateRows: {

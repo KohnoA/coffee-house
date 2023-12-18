@@ -1,7 +1,9 @@
+import Catalog from '@/modules/Catalog';
+
 export default function Menu() {
   return (
     <main className="container">
-      <h1>Menu Page</h1>
+      <Catalog />
     </main>
   )
 }
