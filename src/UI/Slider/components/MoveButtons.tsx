@@ -2,16 +2,17 @@
 
 import Button from '@/UI/Button';
 import ArrowRight from '@/components/icons/ArrowRight';
-import { MODES_OF_MOVE_SLIDES } from '../constants';
+import { memo } from 'react';
 
 interface MoveButtonsProps {
-  moveSlideHandler: (mode: MODES_OF_MOVE_SLIDES) => void;
+  activeSlideIndex: number;
+  changeSlideHandler: (newSlideIndex: number) => void;
 }
 
-export default function MoveButtons({ moveSlideHandler }: MoveButtonsProps) {
-  const moveSlideRight = () => moveSlideHandler(MODES_OF_MOVE_SLIDES.RIGHT);
+function MoveButtons({ changeSlideHandler, activeSlideIndex }: MoveButtonsProps) {
+  const moveSlideRight = () => changeSlideHandler(activeSlideIndex + 1);
 
-  const moveSlideLeft = () => moveSlideHandler(MODES_OF_MOVE_SLIDES.LEFT);
+  const moveSlideLeft = () => changeSlideHandler(activeSlideIndex - 1);
 
   return (
     <>
@@ -38,3 +39,5 @@ export default function MoveButtons({ moveSlideHandler }: MoveButtonsProps) {
     </>
   );
 }
+
+export default memo(MoveButtons);

@@ -1,9 +1,12 @@
-import { ReactNode } from 'react';
+import { ReactNode, memo } from 'react';
 
 interface SliderItemProps {
   children: ReactNode;
+  className?: string;
 }
 
-export default function SliderItem({ children }: SliderItemProps) {
-  return <div className='min-w-full flex justify-center'>{children}</div>;
+function SliderItem({ children, className }: SliderItemProps) {
+  return <div className={`min-w-full ${className ?? ''}`}>{children}</div>;
 }
+
+export default memo(SliderItem);

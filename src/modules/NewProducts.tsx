@@ -13,28 +13,22 @@ export default function NewProducts() {
 
       <Slider>
         {newProductsData.map(({ id, image, name, description, price }) => (
-          <SliderItem key={id}>
-            <div className="max-w-[480px] text-center cursor-pointer">
-              <Image
-                src={image}
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                }}
-                width={480}
-                height={480}
-                sizes="480px"
-                alt={`Image of ${name}`}
-              />
+          <SliderItem key={id} className='flex flex-col items-center'>
+            <Image
+              src={image}
+              width={480}
+              height={480}
+              sizes="480px"
+              alt={`Image of ${name}`}
+            />
 
-              <Title className="!mb-[16px]" level={4} size={3}>
-                {name}
-              </Title>
+            <Title className="!mb-[16px]" level={4} size={3}>
+              {name}
+            </Title>
 
-              <p className="mb-[16px]">{description}</p>
+            <p className="max-w-[480px] text-center mb-[16px]">{description}</p>
 
-              <p className="heading-3">{getCorrectPrice(price)}</p>
-            </div>
+            <p className="heading-3">{getCorrectPrice(price)}</p>
           </SliderItem>
         ))}
       </Slider>
