@@ -81,3 +81,15 @@ body > main {
   font-weight: 600;
   line-height: 125%;
 }
+
+/* Animations */
+
+@keyframes filling {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}

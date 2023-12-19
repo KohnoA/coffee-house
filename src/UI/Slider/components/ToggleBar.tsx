@@ -1,4 +1,6 @@
-import { KeyboardEvent, memo, useEffect } from 'react';
+'use client';
+
+import { KeyboardEvent, memo, useEffect, useState } from 'react';
 import { getSecondsFromMilliseconds } from '../helpers';
 
 interface ToggleBarProps {
@@ -14,6 +16,8 @@ function ToggleBar({
   activeSlideIndex,
   changeSlideHandler,
 }: ToggleBarProps) {
+  const [canStartTransition, setCanStartTransition] = useState<boolean>(false);
+
   const keydownHanler = (
     event: KeyboardEvent<HTMLDivElement>,
     index: number
@@ -30,6 +34,12 @@ function ToggleBar({
     return () => clearTimeout(timeoutId);
   }, [activeSlideIndex, changeSlideHandler]);
 
+  useEffect(() => {
+    if (canStartTransition) return;
+
+    setCanStartTransition(true);
+  }, [canStartTransition]);
+
   return (
     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-[12px] pb-[2px]">
       {new Array(count).fill(count).map((_, index) => (
@@ -39,15 +49,18 @@ function ToggleBar({
           role="button"
           onClick={() => changeSlideHandler(index)}
           onKeyDown={(event) => keydownHanler(event, index)}
-          className={`w-[40px] h-[4px] bg-borderLight rounded-2xl transition-colors cursor-pointer overflow-hidden ${
+          className={`w-[40px] h-[4px] bg-borderLight rounded-2xl cursor-pointer overflow-hidden transition-colors hover:bg-[#b0a69e] ${
             activeSlideIndex === index ? 'pointer-events-none' : ''
           }`}
         >
-          {activeSlideIndex === index && (
+          {activeSlideIndex === index && canStartTransition && (
             <div
-              className={`animate-[filling_${getSecondsFromMilliseconds(
-                SLIDE_TIME
-              )}s_linear_infinite] min-h-full bg-borderDark rounded-2xl`}
+              className={`min-h-full bg-borderDark rounded-2xl`}
+              style={{
+                animation: `filling ${getSecondsFromMilliseconds(
+                  SLIDE_TIME
+                )}s linear infinite`,
+              }}
             />
           )}
         </div>

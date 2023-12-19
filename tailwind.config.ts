@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -20,12 +20,6 @@ const config: Config = {
         borderLight: '#C1B6AD',
         borderDark: '#665F55',
       },
-      keyframes: {
-        filling: {
-          '0%': { transform: 'translateX(-100%)'},
-          '100%': { transform: 'translateX(0)' },
-        }
-      },
       gridTemplateRows: {
         '7': 'repeat(7, minmax(0, 1fr))',
       },
@@ -37,5 +31,5 @@ const config: Config = {
     },
   },
   plugins: [],
-}
-export default config
+};
+export default config;
