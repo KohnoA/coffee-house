@@ -2,13 +2,16 @@
 
 import Title from '@/UI/Title';
 import Tabs from '@/components/Tabs';
+import ProductCard from '@/components/ProductCard';
 import { CATEGORIES_TABS } from './constants';
-import { useMemo } from 'react';
+
+import data from '@/db/products.json';
+
+const TestData = data.filter((product) => product.category === 'coffee');
 
 const DEFAULT_TAB_VALUE = CATEGORIES_TABS[0].value;
 
 export default function Catalog() {
-  const categoriesTabsMemo = useMemo(() => CATEGORIES_TABS, []);
 
   const tabsHandler = (value: string | string[]) => {
     console.log(value);
@@ -23,13 +26,19 @@ export default function Catalog() {
         </Title>
 
         <Tabs onChange={tabsHandler} defaultValue={DEFAULT_TAB_VALUE}>
-          {categoriesTabsMemo.map(({ label, value, icon }) => (
+          {CATEGORIES_TABS.map(({ label, value, icon }) => (
             <Tabs.Item key={value} value={value} icon={icon}>
               {label}
             </Tabs.Item>
           ))}
         </Tabs>
       </div>
+
+      <ul className="grid grid-cols-cards gap-[40px] mb-[100px]">
+        {TestData.map(({ id, ...otherProps }) => (
+          <ProductCard key={id} {...otherProps} />
+        ))}
+      </ul>
     </section>
   );
 }

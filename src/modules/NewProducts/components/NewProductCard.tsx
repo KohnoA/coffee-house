@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Title from '@/UI/Title';
+import { DOLLAR_SYMBOL } from '@/constants';
 
 interface NewProductCardProps {
   image: string;
@@ -30,7 +31,7 @@ export default function NewProductCard({
 
       <p className="max-w-[480px] text-center mb-[16px]">{description}</p>
 
-      <p className="heading-3">{price}</p>
+      <p className="heading-3">{DOLLAR_SYMBOL}{price}</p>
     </div>
   );
 }
