@@ -57,7 +57,7 @@ export default function Item({ value, icon, children }: ItemProps) {
       <Button
         onClick={onClickHandler}
         className={`group flex items-center gap-[8px] py-[8px] pl-[8px] pr-[16px] border-borderLight hover:border-bgContainer ${
-          isActive ? 'text-textLight !bg-bgContainer border-bgContainer' : ''
+          isActive ? 'text-textLight !bg-bgContainer !border-bgContainer' : ''
         }`}
       >
         {icon && (
