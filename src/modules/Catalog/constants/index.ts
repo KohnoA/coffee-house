@@ -1,0 +1,1 @@
+export { CATEGORIES_TABS } from './categories';
