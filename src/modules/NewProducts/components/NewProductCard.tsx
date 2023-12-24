@@ -1,12 +1,11 @@
 import Image from 'next/image';
 import Title from '@/UI/Title';
-import { getCorrectPrice } from '@/helpers';
 
 interface NewProductCardProps {
   image: string;
   name: string;
   description: string;
-  price: number;
+  price: string;
 }
 
 export default function NewProductCard({
@@ -31,7 +30,7 @@ export default function NewProductCard({
 
       <p className="max-w-[480px] text-center mb-[16px]">{description}</p>
 
-      <p className="heading-3">{getCorrectPrice(price)}</p>
+      <p className="heading-3">{price}</p>
     </div>
   );
 }
