@@ -1,3 +1,5 @@
+'use client';
+
 import Title from '@/UI/Title';
 import { DOLLAR_SYMBOL } from '@/constants';
 import Image from 'next/image';
@@ -10,12 +12,9 @@ interface ProductCardProps {
   image: string;
 }
 
-export default function ProductCard({
-  name,
-  description,
-  price,
-  image,
-}: ProductCardProps) {
+export default function ProductCard(props: ProductCardProps) {
+  const { name, description, price, image } = props;
+
   return (
     <li className="rounded-[40px] overflow-hidden border-[1px] border-borderLight transition-shadow hover:shadow-lg hover:shadow-borderLight active:shadow-xl">
       <Link
@@ -39,7 +38,10 @@ export default function ProductCard({
           <p className="grow mb-[12px] max-h-[73px] overflow-hidden">
             {description}
           </p>
-          <p className="heading-3">{DOLLAR_SYMBOL}{price}</p>
+          <p className="heading-3">
+            {DOLLAR_SYMBOL}
+            {price}
+          </p>
         </div>
       </Link>
     </li>
