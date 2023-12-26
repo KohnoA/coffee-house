@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react';
 
-export function useEffectWithoutMount(callback: () => void, deps: unknown[]): void {
-  const isMount = useRef(true);
+export function useEffectWithoutMount(callback: () => void, deps: unknown[]) {
+  const isMounted = useRef(false);
 
   useEffect(() => {
-    if (!isMount.current) {
-      callback();
-    } else {
-      isMount.current = false;
+    if (isMounted.current) {
+      return callback();
     }
+
+    isMounted.current = true;
   }, deps); // eslint-disable-line react-hooks/exhaustive-deps
 }

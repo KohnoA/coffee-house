@@ -1,1 +1,1 @@
-export const DOLLAR_SYMBOL = '$';
+export const API_PRODUCTS_ENDPOINT = '/api/products';

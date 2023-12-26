@@ -2,20 +2,23 @@
 
 import Title from '@/UI/Title';
 import Tabs from '@/components/Tabs';
-import ProductCard from '@/components/ProductCard';
 import { CATEGORIES_TABS } from './constants';
+// import ProductCard from './components/ProductCard';
+// import ProductModal from './components/ProductModal';
 
-import data from '@/db/products.json';
-
-const TestData = data.filter((product) => product.category === 'coffee');
+import { useCallback, useMemo, useState } from 'react';
+import ProductList from './components/ProductList';
 
 const DEFAULT_TAB_VALUE = CATEGORIES_TABS[0].value;
 
 export default function Catalog() {
+  const [category, setCategory] = useState(DEFAULT_TAB_VALUE);
 
-  const tabsHandler = (value: string | string[]) => {
-    console.log(value);
-  };
+  const categoriesTabs = useMemo(() => CATEGORIES_TABS, []);
+
+  const tabsHandler = useCallback((value: string | string[]) => {
+    setCategory(value.toString());
+  }, []);
 
   return (
     <section>
@@ -25,20 +28,16 @@ export default function Catalog() {
           <span className="italic text-textAccent">amazing surprise</span>
         </Title>
 
-        <Tabs onChange={tabsHandler} defaultValue={DEFAULT_TAB_VALUE}>
-          {CATEGORIES_TABS.map(({ label, value, icon }) => (
-            <Tabs.Item key={value} value={value} icon={icon}>
-              {label}
-            </Tabs.Item>
-          ))}
-        </Tabs>
+        <Tabs
+          onChange={tabsHandler}
+          defaultValue={DEFAULT_TAB_VALUE}
+          items={categoriesTabs}
+        />
       </div>
 
-      <ul className="grid grid-cols-cards gap-[40px] mb-[100px]">
-        {TestData.map(({ id, ...otherProps }) => (
-          <ProductCard key={id} {...otherProps} />
-        ))}
-      </ul>
+      <ProductList category={category} />
+
+      {/* <ProductModal /> */}
     </section>
   );
 }
