@@ -6,7 +6,7 @@ export function useQuery<T>(url: string) {
   const [error, setError] = useState<Error>();
 
   useEffect(() => {
-    const getProducts = async () => {
+    const getData = async () => {
       try {
         setIsLoading(true);
 
@@ -20,7 +20,7 @@ export function useQuery<T>(url: string) {
       }
     };
 
-    getProducts();
+    getData();
   }, [url]);
 
   return { data, isLoading, error };
