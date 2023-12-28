@@ -38,7 +38,7 @@ export default function Catalog() {
       setCanShowModal(true);
       setProductIdInModal(productId.toString());
 
-      router.push(`${pathname}?product=${productId}`, {
+      router.push(`${pathname}?${PRODUCT_QUERY_KEY}=${productId}`, {
         scroll: false,
         shallow: false,
       });
