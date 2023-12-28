@@ -1,7 +1,7 @@
 import { Slider, SliderItem } from '@/UI/Slider';
 import Title from '@/UI/Title';
-import newProductsData from '@/db/newProducts.json';
 import NewProductCard from './components/NewProductCard';
+import { NEW_PRODUCTS } from './db';
 
 export default function NewProducts() {
   return (
@@ -11,7 +11,7 @@ export default function NewProducts() {
       </Title>
 
       <Slider>
-        {newProductsData.map(({ id, ...otherProps }) => (
+        {NEW_PRODUCTS.map(({ id, ...otherProps }) => (
           <SliderItem key={id}>
             <NewProductCard {...otherProps} />
           </SliderItem>
