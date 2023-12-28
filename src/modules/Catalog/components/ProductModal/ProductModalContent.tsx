@@ -5,6 +5,7 @@ import Button from '@/UI/Button';
 import Tabs from '@/components/Tabs';
 import InfoIcon from '@/components/icons/InfoIcon';
 import { IProduct } from '@/types';
+import { useUrlParams } from './hooks';
 import {
   convertAdditivesToTabs,
   convertSizesToTabs,
@@ -18,6 +19,8 @@ type ProductModalContentProps = Omit<IProduct, 'id' | 'category'> & {
 };
 
 const DEFAULT_SURCHARGE = 0;
+const SIZE_QUERY_KEY = 'size';
+const ADDITIVES_QUERY_KEY = 'additives';
 
 export default function ProductModalContent(props: ProductModalContentProps) {
   const { closeModal, sizes, additives, price, ...product } = props;
@@ -25,15 +28,25 @@ export default function ProductModalContent(props: ProductModalContentProps) {
   const additiveTabs = convertAdditivesToTabs(additives);
   const DEFAULT_SIZE_VALUE = sizeTabs[0].value;
 
-  const [sizeSurcharge, setSizeSurcharge] = useState<number>(DEFAULT_SURCHARGE);
-  const [additiveSurcharge, setAdditiveSurcharge] = useState<number>(DEFAULT_SURCHARGE);
+  const [sizeParam, setSizeParam] = useUrlParams(SIZE_QUERY_KEY);
+  const [additivesParamStr, setAdditivesParam] = useUrlParams(ADDITIVES_QUERY_KEY);
+  const additivesParam = additivesParamStr?.split(' ');
+
+  const [sizeSurcharge, setSizeSurcharge] = useState<number>(
+    sizeParam ? getSizeSurcharge(sizes, sizeParam) : DEFAULT_SURCHARGE
+  );
+  const [additiveSurcharge, setAdditiveSurcharge] = useState<number>(
+    additivesParam ? getAdditivesSurcharge(additives, additivesParam) : DEFAULT_SURCHARGE
+  );
 
   const onChangeSize = (value: string) => {
     setSizeSurcharge(getSizeSurcharge(sizes, value));
+    setSizeParam(value);
   };
 
   const onChangeAdditives = (value: string[]) => {
     setAdditiveSurcharge(getAdditivesSurcharge(additives, value));
+    setAdditivesParam(value.join(' '));
   };
 
   return (
@@ -58,7 +71,7 @@ export default function ProductModalContent(props: ProductModalContentProps) {
           <p className="mb-[8px]">Size</p>
 
           <Tabs
-            defaultValue={DEFAULT_SIZE_VALUE}
+            defaultValue={sizeParam ?? DEFAULT_SIZE_VALUE}
             onChange={onChangeSize}
             items={sizeTabs}
           />
@@ -67,7 +80,12 @@ export default function ProductModalContent(props: ProductModalContentProps) {
         <div className="mb-[20px]">
           <p className="mb-[8px]">Additives</p>
 
-          <Tabs multiply onChange={onChangeAdditives} items={additiveTabs} />
+          <Tabs
+            multiply
+            items={additiveTabs}
+            onChange={onChangeAdditives}
+            defaultValue={additivesParam}
+          />
         </div>
 
         <div className="flex justify-between mb-[20px]">
