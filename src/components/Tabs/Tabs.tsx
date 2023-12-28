@@ -2,47 +2,53 @@
 
 import { ReactNode, memo, useState } from 'react';
 import Item from './Item';
-import { useEffectWithoutMount } from '@/hooks';
 
-interface TabsProps {
-  multiply?: boolean;
-  defaultValue?: string | string[];
+interface TabsOwnProps {
   className?: string;
   items: { label: string; value: string; icon?: string | ReactNode }[];
-  onChange: (value: string | string[]) => void;
 }
 
-const DEFAULT_VALUE_FOR_TABS = '';
+type MultiplyTabsProps = TabsOwnProps & {
+  multiply: true;
+  defaultValue?: string[];
+  onChange: (value: string[]) => void;
+};
+
+type NonMultiplyTabsProps = TabsOwnProps & {
+  multiply?: never;
+  defaultValue?: string;
+  onChange: (value: string) => void;
+};
+
+type TabsProps = MultiplyTabsProps | NonMultiplyTabsProps;
+
+const DEFAULT_VALUE_FOR_TABS: string = '';
+const DEFAULT_VALUE_FOR_MULTIPLY_TABS: string[] = [];
 
 function Tabs(props: TabsProps) {
-  const { multiply = false, defaultValue, items, className, onChange } = props;
+  const { multiply, defaultValue, items, className, onChange } = props;
 
-  const [activeTabs, setActiveTabs] = useState<string | string[]>(
-    defaultValue ?? DEFAULT_VALUE_FOR_TABS
-  );
+  const [activeTabs, setActvieTabs] = useState<string | string[]>(() => {
+    if (multiply) return defaultValue ?? DEFAULT_VALUE_FOR_MULTIPLY_TABS;
+    else return defaultValue ?? DEFAULT_VALUE_FOR_TABS;
+  });
 
-  const setActiveTabsHandler = (value: string) => {
-    if (multiply) {
-      if (Array.isArray(activeTabs)) {
-        setActiveTabs([...activeTabs, value]);
-      } else {
-        setActiveTabs([activeTabs, value]);
-      }
-    } else {
-      setActiveTabs(value);
-    }
+  const addActiveTab = (value: string) => {
+    const newActiveTabs = multiply
+      ? [...(activeTabs as string[]), value]
+      : value;
+
+    setActvieTabs(newActiveTabs);
+    onChange(newActiveTabs as string & string[]);
   };
 
-  const filterActiveTabsHanlder = (value: string) => {
-    if (Array.isArray(activeTabs)) {
-      const filteredActiveTabs = activeTabs.filter((tab) => tab !== value);
+  const removeActiveTab = (value: string) => {
+    const filteredActiveTabs = (activeTabs as string[]).filter(
+      (tab) => tab !== value
+    );
 
-      setActiveTabs(
-        filteredActiveTabs.length ? filteredActiveTabs : DEFAULT_VALUE_FOR_TABS
-      );
-    } else {
-      setActiveTabs(DEFAULT_VALUE_FOR_TABS);
-    }
+    setActvieTabs(filteredActiveTabs);
+    onChange(filteredActiveTabs as string & string[]);
   };
 
   const onClickHandler = (value: string) => {
@@ -50,16 +56,9 @@ function Tabs(props: TabsProps) {
 
     if (!multiply && isActiveValue) return;
 
-    if (isActiveValue) {
-      filterActiveTabsHanlder(value);
-    } else {
-      setActiveTabsHandler(value);
-    }
+    if (isActiveValue) removeActiveTab(value);
+    else addActiveTab(value);
   };
-
-  useEffectWithoutMount(() => {
-    onChange(activeTabs);
-  }, [activeTabs, onChange]);
 
   return (
     <ul className={`flex gap-[16px] ${className ?? ''}`}>

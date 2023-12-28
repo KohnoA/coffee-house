@@ -1,1 +1,1 @@
-export { type IProduct } from './IProduct';
+export { type IProduct, type AdditivesType, type SizesType } from './IProduct';

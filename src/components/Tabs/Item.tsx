@@ -1,5 +1,5 @@
-import Button from '@/UI/Button';
 import { ReactNode } from 'react';
+import Button from '@/UI/Button';
 
 interface ItemProps {
   icon?: ReactNode;
@@ -16,8 +16,10 @@ export default function Item(props: ItemProps) {
     <li>
       <Button
         onClick={() => onClick(value)}
-        className={`group flex items-center gap-[8px] py-[8px] pl-[8px] pr-[16px] border-borderLight hover:border-bgContainer ${
-          isActive ? 'text-textLight !bg-bgContainer !border-bgContainer' : ''
+        className={`group flex items-center gap-[8px] py-[8px] pl-[8px] pr-[16px] border-borderLight hover:bg-textAccent hover:border-textAccent ${
+          isActive
+            ? 'text-textLight !bg-bgContainer !border-bgContainer active:!bg-textDark active:!border-textDark'
+            : ''
         }`}
       >
         {icon && (

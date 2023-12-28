@@ -1,8 +1,9 @@
-type SizesType = Record<
+export type SizesType = Record<
   's' | 'm' | 'l',
   { size: string; 'add-price': 'string' }
 >;
-type AdditivesType = { name: string; 'add-price': string };
+
+export type AdditivesType = { name: string; 'add-price': string };
 
 export interface IProduct {
   id: number;

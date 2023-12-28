@@ -1,62 +1,95 @@
-import { getProductById } from '@/services';
-import { IProduct } from '@/types';
-import useSWR from 'swr';
+import { useState } from 'react';
 import Image from 'next/image';
 import Title from '@/UI/Title';
+import Button from '@/UI/Button';
 import Tabs from '@/components/Tabs';
+import InfoIcon from '@/components/icons/InfoIcon';
+import { IProduct } from '@/types';
+import {
+  convertAdditivesToTabs,
+  convertSizesToTabs,
+  getSizeSurcharge,
+  getAdditivesSurcharge,
+  getTotalPriceStr,
+} from './helpers';
 
-interface ProductModalContentProps {
-  productId: string;
-}
+type ProductModalContentProps = Omit<IProduct, 'id' | 'category'> & {
+  closeModal: () => void;
+};
 
-export default function ProductModalContent({
-  productId,
-}: ProductModalContentProps) {
-  const { data, isLoading, error } = useSWR<IProduct>(
-    productId,
-    getProductById
-  );
+const DEFAULT_SURCHARGE = 0;
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
+export default function ProductModalContent(props: ProductModalContentProps) {
+  const { closeModal, sizes, additives, price, ...product } = props;
+  const sizeTabs = convertSizesToTabs(sizes);
+  const additiveTabs = convertAdditivesToTabs(additives);
+  const DEFAULT_SIZE_VALUE = sizeTabs[0].value;
 
-  if (error) {
-    return <p>{error.message}</p>;
-  }
+  const [sizeSurcharge, setSizeSurcharge] = useState<number>(DEFAULT_SURCHARGE);
+  const [additiveSurcharge, setAdditiveSurcharge] = useState<number>(DEFAULT_SURCHARGE);
+
+  const onChangeSize = (value: string) => {
+    setSizeSurcharge(getSizeSurcharge(sizes, value));
+  };
+
+  const onChangeAdditives = (value: string[]) => {
+    setAdditiveSurcharge(getAdditivesSurcharge(additives, value));
+  };
 
   return (
-    data && (
-      <section className="flex gap-[20px]">
-        <Image
-          className="rounded-[40px]"
-          src={data.image}
-          width={310}
-          height={310}
-          sizes="310px"
-          alt={`Photo of ${data.name}`}
-        />
+    <section className="flex items-start gap-[20px]">
+      <Image
+        className="rounded-[40px]"
+        src={product.image}
+        width={310}
+        height={310}
+        sizes="310px"
+        alt={`Photo of ${product.name}`}
+      />
 
-        <div className="max-w-[438px]">
-          <Title level={4} size={3} className="!mb-[12px]">
-            {data.name}
-          </Title>
+      <div className="max-w-[438px]">
+        <Title level={4} size={3} className="!mb-[12px]">
+          {product.name}
+        </Title>
 
-          <p className="mb-[20px]">{data.description}</p>
+        <p className="mb-[20px]">{product.description}</p>
 
-          <div className="mb-[20px]">
-            <p className="mb-[8px]">Size</p>
+        <div className="mb-[20px]">
+          <p className="mb-[8px]">Size</p>
 
-            <Tabs onChange={() => console.log('change')}>
-              {Object.entries(data.sizes).map(([size, info]) => (
-                <Tabs.Item key={size} icon={size.toUpperCase()} value={size}>
-                  {info.size}
-                </Tabs.Item>
-              ))}
-            </Tabs>
-          </div>
+          <Tabs
+            defaultValue={DEFAULT_SIZE_VALUE}
+            onChange={onChangeSize}
+            items={sizeTabs}
+          />
         </div>
-      </section>
-    )
+
+        <div className="mb-[20px]">
+          <p className="mb-[8px]">Additives</p>
+
+          <Tabs multiply onChange={onChangeAdditives} items={additiveTabs} />
+        </div>
+
+        <div className="flex justify-between mb-[20px]">
+          <p className="heading-3">Total:</p>
+          <p className="heading-3">
+            ${getTotalPriceStr(price, sizeSurcharge, additiveSurcharge)}
+          </p>
+        </div>
+
+        <div className="flex gap-[8px] mb-[20px] py-[12px] border-t-[1px] border-borderLight">
+          <InfoIcon className="shrink-0" width={16} height={16} />
+          <p className="caption">
+            The cost is not final. Download our mobile app to see the final price and
+            place your order. Earn loyalty points and enjoy your favorite coffee with up
+            to 20% discount.
+          </p>
+        </div>
+
+        <Button className="w-full" onClick={closeModal}>
+          Close
+        </Button>
+      </div>
+    </section>
   );
 }

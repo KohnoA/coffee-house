@@ -1,42 +1,37 @@
-'use client';
-
-import Modal from '@/UI/Modal';
-import { useSearchParams, useRouter, usePathname } from 'next/navigation';
-import { memo, useEffect, useState } from 'react';
-import { PRODUCT_QUERY_KEY } from '../../constants';
+import { memo } from 'react';
+import { useQuery } from '@/hooks';
+import { IProduct } from '@/types';
+import { API_PRODUCTS_ENDPOINT } from '@/constants';
 import ProductModalContent from './ProductModalContent';
+import ProductModalSkeleton from './ProductModalSkeleton';
 
-function ProductModal() {
-  const [productId, setProductId] = useState<string>();
-  const [isActive, setIsActive] = useState<boolean>(false);
+interface ProductModalProps {
+  id: string | number;
+  closeModal: () => void;
+}
 
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const router = useRouter();
-
-  const closeModalHandler = () => {
-    const params = new URLSearchParams(searchParams);
-
-    setIsActive(false);
-    params.delete(PRODUCT_QUERY_KEY);
-    router.push(`${pathname}?${params.toString()}`, {
-      scroll: false,
-      shallow: false,
-    });
-  };
-
-  useEffect(() => {
-    if (searchParams.has(PRODUCT_QUERY_KEY)) {
-      setIsActive(true);
-      setProductId(searchParams.get(PRODUCT_QUERY_KEY) as string);
-    }
-  }, [searchParams]);
-
-  return (
-    <Modal isActive={isActive} onClose={closeModalHandler}>
-      {productId && <ProductModalContent productId={productId} />}
-    </Modal>
+function ProductModal({ id, closeModal }: ProductModalProps) {
+  const { data, isLoading, error } = useQuery<IProduct>(
+    `${API_PRODUCTS_ENDPOINT}/${id}`
   );
+
+  if (isLoading) {
+    return <ProductModalSkeleton />;
+  }
+
+  if (error) {
+    return (
+      <p className="text-center mt-[100px] mb-[100px] font-bold text-2xl">
+        An error occurred, please try later
+      </p>
+    );
+  }
+
+  if (!data) {
+    return null;
+  }
+
+  return <ProductModalContent {...data} closeModal={closeModal} />;
 }
 
 export default memo(ProductModal);
