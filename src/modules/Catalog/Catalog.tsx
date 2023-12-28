@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { CATEGORIES_TABS, PRODUCT_QUERY_KEY } from './constants';
 import Title from '@/UI/Title';
@@ -11,34 +11,40 @@ import Modal from '@/UI/Modal';
 
 const DEFAULT_TAB_VALUE = CATEGORIES_TABS[0].value;
 
-//TODO: Optimization
-
 export default function Catalog() {
-  const [category, setCategory] = useState(DEFAULT_TAB_VALUE);
-  const [canShowModal, setCanShowModal] = useState<boolean>(false);
-  const [productIdInModal, setProductIdInModal] = useState<string>();
-
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
 
-  const closeModalHandler = () => {
-    const params = new URLSearchParams(searchParams);
+  const [category, setCategory] = useState(DEFAULT_TAB_VALUE);
+  const [canShowModal, setCanShowModal] = useState<boolean>(
+    searchParams.has(PRODUCT_QUERY_KEY)
+  );
+  const [productIdInModal, setProductIdInModal] = useState<string | null>(
+    searchParams.get(PRODUCT_QUERY_KEY)
+  );
 
+  const closeModalHandler = () => {
     setCanShowModal(false);
-    params.delete(PRODUCT_QUERY_KEY);
-    router.push(`${pathname}?${params.toString()}`, {
+
+    router.push(pathname, {
       scroll: false,
       shallow: false,
     });
   };
 
-  useEffect(() => {
-    if (searchParams.has(PRODUCT_QUERY_KEY)) {
+  const openModalHanlder = useCallback(
+    (productId: number) => {
       setCanShowModal(true);
-      setProductIdInModal(searchParams.get(PRODUCT_QUERY_KEY) as string);
-    }
-  }, [searchParams]);
+      setProductIdInModal(productId.toString());
+
+      router.push(`${pathname}?product=${productId}`, {
+        scroll: false,
+        shallow: false,
+      });
+    },
+    [router, pathname]
+  );
 
   return (
     <section>
@@ -55,7 +61,7 @@ export default function Catalog() {
         />
       </div>
 
-      <ProductList category={category} />
+      <ProductList category={category} onClickItem={openModalHanlder} />
 
       <Modal isActive={canShowModal} onClose={closeModalHandler}>
         {productIdInModal && (

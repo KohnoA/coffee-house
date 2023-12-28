@@ -3,12 +3,14 @@ import ProductCard from './ProductCard';
 import { useQuery } from '@/hooks';
 import { API_PRODUCTS_ENDPOINT } from '@/constants';
 import ProductListSkeleton from './ProductListSkeleton';
+import { memo } from 'react';
 
 interface ProductListProps {
   category: string;
+  onClickItem: (id: number) => void;
 }
 
-export default function ProductList({ category }: ProductListProps) {
+function ProductList({ category, onClickItem }: ProductListProps) {
   const {
     data: products,
     isLoading,
@@ -31,7 +33,7 @@ export default function ProductList({ category }: ProductListProps) {
     return (
       <ul className="grid grid-cols-cards gap-[40px] mb-[100px]">
         {products.map((product) => (
-          <ProductCard key={product.id} {...product} />
+          <ProductCard key={product.id} onClick={onClickItem} {...product} />
         ))}
       </ul>
     );
@@ -39,3 +41,5 @@ export default function ProductList({ category }: ProductListProps) {
 
   return null;
 }
+
+export default memo(ProductList);

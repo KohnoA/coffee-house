@@ -11,9 +11,11 @@ interface ProductModalProps {
 }
 
 function ProductModal({ id, closeModal }: ProductModalProps) {
-  const { data, isLoading, error } = useQuery<IProduct>(
-    `${API_PRODUCTS_ENDPOINT}/${id}`
-  );
+  const {
+    data: product,
+    isLoading,
+    error,
+  } = useQuery<IProduct>(`${API_PRODUCTS_ENDPOINT}/${id}`);
 
   if (isLoading) {
     return <ProductModalSkeleton />;
@@ -27,11 +29,11 @@ function ProductModal({ id, closeModal }: ProductModalProps) {
     );
   }
 
-  if (!data) {
+  if (!product) {
     return null;
   }
 
-  return <ProductModalContent {...data} closeModal={closeModal} />;
+  return <ProductModalContent {...product} closeModal={closeModal} />;
 }
 
 export default memo(ProductModal);
