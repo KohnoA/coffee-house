@@ -4,21 +4,20 @@ import { AUTHOR_LINKEDIN } from '@/components/SocialList/constants';
 import AppleIcon from '@/components/icons/AppleIcon';
 import GooglePlayIcon from '@/components/icons/GooglePlayIcon';
 import Image from 'next/image';
-
-const BG_IMAGE_PATH = '/images/mobile-screens.png';
+import bgImage from '@/../public/images/mobile-screens.png';
 
 export default function Ecosystem() {
   return (
     <section className="grid grid-cols-2 gap-[100px] mb-[100px]">
       <div className="py-[144px]">
         <Title level={2} size={2}>
-          <span className="italic text-textAccent">Download</span> our apps to
-          start ordering
+          <span className="italic text-textAccent">Download</span> our apps to start
+          ordering
         </Title>
 
         <p className="mb-[40px]">
-          Download the Resource app today and experience the comfort of ordering
-          your favorite coffee from wherever you are
+          Download the Resource app today and experience the comfort of ordering your
+          favorite coffee from wherever you are
         </p>
 
         <div className="flex flex-wrap gap-[20px]">
@@ -57,7 +56,7 @@ export default function Ecosystem() {
       <div className="relative">
         <Image
           className="row-start-2 row-end-3"
-          src={BG_IMAGE_PATH}
+          src={bgImage}
           fill
           sizes="630px"
           alt="Modile App"

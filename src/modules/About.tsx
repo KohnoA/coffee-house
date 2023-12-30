@@ -6,7 +6,7 @@ import aboutImg2 from '@/../public/images/about-2.jpg'
 import aboutImg3 from '@/../public/images/about-3.jpg'
 import aboutImg4 from '@/../public/images/about-4.jpg'
 
-const PATHS_TO_IMAGES = [
+const IMAGE_LIST = [
   aboutImg1,
   aboutImg2,
   aboutImg3,
@@ -26,7 +26,7 @@ export default function About() {
       </Title>
 
       <ul className="min-h-[1060px] grid grid-cols-2 grid-rows-7 grid-flow-column-dense gap-[40px]">
-        {PATHS_TO_IMAGES.map((img, index) => (
+        {IMAGE_LIST.map((img, index) => (
           <li
             key={img.src}
             className="relative group rounded-2xl overflow-hidden cursor-pointer row-[span_4] even:row-[span_3]"

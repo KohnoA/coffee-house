@@ -1,8 +1,8 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import Title from '@/UI/Title';
 
 interface NewProductCardProps {
-  image: string;
+  image: StaticImageData;
   name: string;
   description: string;
   price: string;
@@ -18,6 +18,8 @@ export default function NewProductCard({
     <div className="flex flex-col items-center">
       <Image
         src={image}
+        placeholder='blur'
+        blurDataURL={image.blurDataURL}
         width={480}
         height={480}
         sizes="480px"
