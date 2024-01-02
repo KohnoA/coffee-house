@@ -8,7 +8,7 @@ import bgImage from '@/../public/images/promo.jpg';
 
 export default function Promo() {
   return (
-    <section className="relative flex justify-start items-start mb-[100px] py-[100px] px-[100px] text-textLight rounded-[40px] overflow-hidden bg-bgContainer">
+    <section className="relative flex justify-start items-start mb-[100px] py-[100px] px-[100px] text-textLight rounded-[40px] overflow-hidden bg-bgContainer max-xl:px-[60px]">
       <div className="relative z-10 max-w-[530px]">
         <Title level={2}>
           <span className="text-textAccent italic">Enjoy</span> premium coffee at our
@@ -35,6 +35,7 @@ export default function Promo() {
       </div>
 
       <Image
+        className="object-cover"
         src={bgImage}
         placeholder="blur"
         blurDataURL={bgImage.blurDataURL}

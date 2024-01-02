@@ -19,11 +19,11 @@ export default function About() {
         some work done.
       </Title>
 
-      <ul className="min-h-[1060px] grid grid-cols-2 grid-rows-7 grid-flow-column-dense gap-[40px]">
+      <ul className="min-h-[1060px] grid grid-cols-2 grid-rows-7 grid-flow-column-dense gap-[40px] max-lg:min-h-[1220px] max-lg:grid-cols-1 max-lg:grid-rows-2">
         {IMAGE_LIST.map((img, index) => (
           <li
             key={img.src}
-            className="relative group rounded-2xl overflow-hidden cursor-pointer row-[span_4] even:row-[span_3]"
+            className="relative group rounded-2xl overflow-hidden cursor-pointer row-[span_4] even:row-[span_3] max-lg:row-[span_1] max-lg:even:hidden"
           >
             <Image
               className="object-cover transition-transform scale-110 group-hover:scale-100"

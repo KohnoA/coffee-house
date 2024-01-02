@@ -3,7 +3,7 @@
 }
 
 .modal-enter .modal-content {
-  transform: translateX(-50%) translateY(-50%) scale(0.9);
+  transform: scale(0.9);
 }
 
 .modal-enter-active {
@@ -13,7 +13,7 @@
 
 .modal-enter-active .modal-content {
   opacity: 1;
-  transform: translateX(-50%) translateY(-50%) scale(1);
+  transform: scale(1);
   transition: opacity 300ms, transform 300ms;
 }
 
@@ -22,7 +22,7 @@
 }
 
 .modal-exit .modal-content {
-  transform: translateX(-50%) translateY(-50%) scale(1);
+  transform: scale(1);
 }
 
 .modal-exit-active {
@@ -31,6 +31,6 @@
 }
 
 .modal-exit-active .modal-content {
-  transform: translateX(-50%) translateY(-50%) scale(0.9);
+  transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
 }

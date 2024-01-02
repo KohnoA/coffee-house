@@ -11,9 +11,9 @@ export default function Ecosystem() {
   return (
     <section
       id={MAIN_SECTIONS_ID.MOBILE_APP}
-      className="grid grid-cols-2 gap-[100px] mb-[100px]"
+      className="grid grid-cols-2 gap-[100px] mb-[100px] max-lg:grid-cols-1 max-lg:justify-items-center"
     >
-      <div className="py-[144px]">
+      <div className="flex flex-col justify-center items-start">
         <Title level={2} size={2}>
           <span className="italic text-textAccent">Download</span> our apps to start
           ordering
@@ -57,15 +57,14 @@ export default function Ecosystem() {
         </div>
       </div>
 
-      <div className="relative">
-        <Image
-          className="row-start-2 row-end-3"
-          src={bgImage}
-          fill
-          sizes="630px"
-          alt="Modile App"
-        />
-      </div>
+      <Image
+        className="h-auto"
+        src={bgImage}
+        width={630}
+        height={630}
+        sizes="630px"
+        alt="Modile App"
+      />
     </section>
   );
 }

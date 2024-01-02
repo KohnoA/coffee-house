@@ -35,11 +35,11 @@ export default function Modal({ children, isActive, onClose }: ModalProps) {
     >
       <div
         ref={nodeRef}
-        className="fixed left-0 right-0 top-0 bottom-0 bg-bgBackdrop shadow-xl"
+        className="fixed z-50 left-0 right-0 top-0 bottom-0 flex justify-center items-center p-[40px] bg-bgBackdrop shadow-xl overflow-y-auto"
         onClick={onClose}
       >
         <div
-          className="modal-content fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-full max-h-full bg-bgBody p-[16px] rounded-[40px]"
+          className="modal-content m-auto p-[16px] bg-bgBody rounded-[40px]"
           onClick={(event) => event.stopPropagation()}
         >
           {children}
