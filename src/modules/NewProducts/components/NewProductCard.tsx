@@ -17,6 +17,7 @@ export default function NewProductCard({
   return (
     <div className="flex flex-col items-center">
       <Image
+        className='mb-[20px]'
         src={image}
         placeholder='blur'
         blurDataURL={image.blurDataURL}

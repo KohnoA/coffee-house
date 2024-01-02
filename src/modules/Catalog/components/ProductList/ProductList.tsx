@@ -31,7 +31,7 @@ function ProductList({ category, onClickItem }: ProductListProps) {
 
   if (products) {
     return (
-      <ul className="grid grid-cols-cards gap-[40px] mb-[100px]">
+      <ul className="grid grid-cols-cards gap-[40px] mb-[100px] max-[768px]:px-[14px] max-sm:px-[19px]">
         {products.map((product) => (
           <ProductCard key={product.id} onClick={onClickItem} {...product} />
         ))}

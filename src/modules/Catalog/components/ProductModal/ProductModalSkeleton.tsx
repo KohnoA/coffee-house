@@ -1,7 +1,7 @@
 export default function ProductModalSkeleton() {
   return (
     <section className="flex items-start gap-[20px]">
-      <div className="animate-pulse shrink-0 w-[310px] h-[310px] bg-borderLight rounded-[40px]" />
+      <div className="animate-pulse shrink-0 w-[310px] h-[310px] bg-borderLight rounded-[40px] max-[716px]:hidden" />
 
       <div>
         <div className="animate-pulse w-[40%] h-[30px] mb-[20px] bg-borderLight rounded-[20px]" />

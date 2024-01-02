@@ -11,7 +11,7 @@ export default function Ecosystem() {
   return (
     <section
       id={MAIN_SECTIONS_ID.MOBILE_APP}
-      className="grid grid-cols-2 gap-[100px] mb-[100px] max-lg:grid-cols-1 max-lg:justify-items-center"
+      className="grid grid-cols-2 gap-[100px] mb-[100px] max-lg:grid-cols-1 max-lg:justify-items-center max-sm:gap-[40px]"
     >
       <div className="flex flex-col justify-center items-start">
         <Title level={2} size={2}>

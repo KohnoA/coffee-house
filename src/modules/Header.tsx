@@ -51,7 +51,7 @@ export default function Header() {
 
           <li
             className={`absolute w-full flex justify-between transition-transform duration-300 max-[768px]:fixed max-[768px]:z-20 max-[768px]:left-0 max-[768px]:right-0 max-[768px]:top-0 max-[768px]:bottom-0 max-[768px]:flex-col max-[768px]:justify-start max-[768px]:gap-[40px] max-[768px]:pt-[100px] max-[768px]:items-center max-[768px]:bg-bgBody max-[768px]:shadow-2xl max-[768px]:translate-x-full ${
-              isActiveBurger ? 'max-[768px]:translate-x-0' : ''
+              isActiveBurger ? 'max-[768px]:!translate-x-0' : ''
             }`}
           >
             <ul className="min-[769px]:absolute left-1/2 min-[769px]:-translate-x-1/2 min-[769px]:bottom-1/2 min-[769px]:translate-y-1/2 flex gap-[40px] whitespace-nowrap max-[768px]:flex-col max-[768px]:items-center max-[768px]:gap-[20px]">

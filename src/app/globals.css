@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --text-dark: #403F3D;
-  --bg-body: #E1D4C9;
+  --text-dark: #403f3d;
+  --bg-body: #e1d4c9;
 }
 
 html {
@@ -41,6 +41,13 @@ body > main {
   padding-right: 40px;
 }
 
+@media (max-width: 640px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
 /* Font classes */
 
 .heading-1 {
@@ -49,19 +56,10 @@ body > main {
   line-height: 105%;
 }
 
-.heading-1-mobile {
-  font-size: 42px;
-  line-height: 115%;
-}
-
 .heading-2 {
   font-size: 60px;
   font-weight: 600;
   line-height: 125%;
-}
-
-.heading-2-mobile {
-  font-size: 32px;
 }
 
 .heading-3 {
@@ -80,6 +78,17 @@ body > main {
   font-size: 32px;
   font-weight: 600;
   line-height: 125%;
+}
+
+@media (max-width: 640px) {
+  .heading-1 {
+    font-size: 42px;
+    line-height: 115%;
+  }
+
+  .heading-2 {
+    font-size: 32px;
+  }
 }
 
 /* Animations */

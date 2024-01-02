@@ -21,7 +21,7 @@ const config: Config = {
         borderDark: '#665F55',
       },
       gridTemplateColumns: {
-        'cards': 'repeat(auto-fill, minmax(310px, 1fr))',
+        'cards': 'repeat(auto-fill, minmax(260px, 1fr))',
       },
       gridTemplateRows: {
         '7': 'repeat(7, minmax(0, 1fr))',

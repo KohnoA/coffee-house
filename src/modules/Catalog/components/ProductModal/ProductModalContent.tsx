@@ -52,7 +52,7 @@ export default function ProductModalContent(props: ProductModalContentProps) {
   return (
     <section className="flex items-start gap-[20px]">
       <Image
-        className="rounded-[40px] shrink-0"
+        className="rounded-[40px] shrink-0 max-[716px]:hidden"
         src={product.image}
         width={310}
         height={310}

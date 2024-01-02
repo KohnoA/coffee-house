@@ -61,7 +61,7 @@ function Tabs(props: TabsProps) {
   };
 
   return (
-    <ul className={`flex flex-wrap gap-[16px] ${className ?? ''}`}>
+    <ul className={`flex flex-wrap gap-[16px] max-sm:gap-[8px] ${className ?? ''}`}>
       {items.map(({ value, ...otherProps }) => (
         <Item
           key={value}
