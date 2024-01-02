@@ -3,13 +3,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
-import Button from '@/UI/Button';
 import MyLink from '@/UI/MyLink';
-import MainIcon from '@/components/icons/MainIcon';
 import CoffeeCupIcon from '@/components/icons/CoffeeCupIcon';
-
-import { APP_ROUTES } from '@/constants/routes';
+import { APP_ROUTES, MAIN_ANCHORS } from '@/constants/routes';
 
 const APP_LOGO_PATH = '/icons/logo.svg';
 
@@ -36,29 +32,27 @@ export default function Header() {
           </li>
 
           <li>
-            <ul className="flex items-center gap-8">
+            <ul className="flex gap-[40px]">
               <li>
-                <MyLink
-                  href={APP_ROUTES.MAIN}
-                  isActive={pathname === APP_ROUTES.MAIN}
-                >
-                  Main
-                  <MainIcon width={20} height={20} />
-                </MyLink>
+                <MyLink href={MAIN_ANCHORS.NEW_PRODUCTS}>New products</MyLink>
               </li>
               <li>
-                <MyLink
-                  href={APP_ROUTES.MENU}
-                  isActive={pathname === APP_ROUTES.MENU}
-                >
-                  Menu
-                  <CoffeeCupIcon width={20} height={20} />
-                </MyLink>
+                <MyLink href={MAIN_ANCHORS.ABOUT}>About</MyLink>
               </li>
               <li>
-                <Button className="py-[10px] px-[40px]">Sign In</Button>
+                <MyLink href={MAIN_ANCHORS.MOBILE_APP}>Mobile app</MyLink>
+              </li>
+              <li>
+                <MyLink href={MAIN_ANCHORS.CONTACT_US}>Contact us</MyLink>
               </li>
             </ul>
+          </li>
+
+          <li>
+            <MyLink href={APP_ROUTES.MENU} isActive={pathname === APP_ROUTES.MENU}>
+              Menu
+              <CoffeeCupIcon width={20} height={20} />
+            </MyLink>
           </li>
         </ul>
       </nav>

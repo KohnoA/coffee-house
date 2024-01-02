@@ -5,10 +5,14 @@ import AppleIcon from '@/components/icons/AppleIcon';
 import GooglePlayIcon from '@/components/icons/GooglePlayIcon';
 import Image from 'next/image';
 import bgImage from '@/../public/images/mobile-screens.png';
+import { MAIN_SECTIONS_ID } from '@/constants/routes';
 
 export default function Ecosystem() {
   return (
-    <section className="grid grid-cols-2 gap-[100px] mb-[100px]">
+    <section
+      id={MAIN_SECTIONS_ID.MOBILE_APP}
+      className="grid grid-cols-2 gap-[100px] mb-[100px]"
+    >
       <div className="py-[144px]">
         <Title level={2} size={2}>
           <span className="italic text-textAccent">Download</span> our apps to start

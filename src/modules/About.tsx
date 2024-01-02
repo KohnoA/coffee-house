@@ -1,28 +1,22 @@
 import Title from '@/UI/Title';
 import Image from 'next/image';
+import { MAIN_SECTIONS_ID } from '@/constants/routes';
 
-import aboutImg1 from '@/../public/images/about-1.jpg'
-import aboutImg2 from '@/../public/images/about-2.jpg'
-import aboutImg3 from '@/../public/images/about-3.jpg'
-import aboutImg4 from '@/../public/images/about-4.jpg'
+import aboutImg1 from '@/../public/images/about-1.jpg';
+import aboutImg2 from '@/../public/images/about-2.jpg';
+import aboutImg3 from '@/../public/images/about-3.jpg';
+import aboutImg4 from '@/../public/images/about-4.jpg';
 
-const IMAGE_LIST = [
-  aboutImg1,
-  aboutImg2,
-  aboutImg3,
-  aboutImg4,
-];
+const IMAGE_LIST = [aboutImg1, aboutImg2, aboutImg3, aboutImg4];
 
 export default function About() {
   return (
-    <section className="mb-[100px]">
+    <section id={MAIN_SECTIONS_ID.ABOUT} className="mb-[100px]">
       <Title level={2} size={2}>
         Resource is{' '}
-        <span className="text-textAccent italic">
-          the perfect and cozy place
-        </span>{' '}
-        where you can enjoy a variety of hot beverages, relax, catch up with
-        friends, or get some work done.
+        <span className="text-textAccent italic">the perfect and cozy place</span> where
+        you can enjoy a variety of hot beverages, relax, catch up with friends, or get
+        some work done.
       </Title>
 
       <ul className="min-h-[1060px] grid grid-cols-2 grid-rows-7 grid-flow-column-dense gap-[40px]">
