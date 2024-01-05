@@ -33,7 +33,7 @@ export default function Header() {
   return (
     <header className="container mb-[20px] bg-bgBody">
       <nav>
-        <ul className="relative flex items-center pt-[20px] font-semibold max-[768px]:justify-between">
+        <ul className="relative flex items-center pt-[20px] font-semibold lg:justify-between">
           <li className="relative z-30">
             <Link
               href={APP_ROUTES.MAIN}
@@ -50,11 +50,11 @@ export default function Header() {
           </li>
 
           <li
-            className={`absolute w-full flex justify-between transition-transform duration-300 max-[768px]:fixed max-[768px]:z-20 max-[768px]:left-0 max-[768px]:right-0 max-[768px]:top-0 max-[768px]:bottom-0 max-[768px]:flex-col max-[768px]:justify-start max-[768px]:gap-[40px] max-[768px]:pt-[100px] max-[768px]:items-center max-[768px]:bg-bgBody max-[768px]:shadow-2xl max-[768px]:translate-x-full ${
-              isActiveBurger ? 'max-[768px]:!translate-x-0' : ''
+            className={`absolute w-full flex justify-between transition-transform duration-300 lg:fixed lg:z-20 lg:left-0 lg:right-0 lg:top-0 lg:bottom-0 lg:flex-col lg:justify-start lg:gap-[40px] lg:py-[100px] lg:items-center lg:bg-bgBody lg:shadow-2xl lg:overflow-auto lg:translate-x-full ${
+              isActiveBurger ? 'lg:!translate-x-0' : ''
             }`}
           >
-            <ul className="min-[769px]:absolute left-1/2 min-[769px]:-translate-x-1/2 min-[769px]:bottom-1/2 min-[769px]:translate-y-1/2 flex gap-[40px] whitespace-nowrap max-[768px]:flex-col max-[768px]:items-center max-[768px]:gap-[20px]">
+            <ul className="absolute left-1/2 -translate-x-1/2 bottom-1/2 translate-y-1/2 flex gap-[40px] whitespace-nowrap lg:flex-col lg:items-center lg:gap-[20px] lg:static lg:translate-x-0 lg:translate-y-0">
               <li>
                 <MyLink href={MAIN_ANCHORS.NEW_PRODUCTS}>New products</MyLink>
               </li>
@@ -70,7 +70,7 @@ export default function Header() {
             </ul>
 
             <MyLink
-              className="min-[769px]:!absolute min-[769px]:right-0 min-[769px]:bottom-1/2 min-[769px]:translate-y-1/2"
+              className="!absolute right-0 bottom-1/2 translate-y-1/2 lg:!static lg:translate-y-0"
               href={APP_ROUTES.MENU}
               isActive={pathname === APP_ROUTES.MENU}
             >
@@ -79,7 +79,7 @@ export default function Header() {
             </MyLink>
           </li>
 
-          <li className="hidden relative z-30 justify-between max-[768px]:block">
+          <li className="hidden relative z-30 justify-between lg:block">
             <Button onClick={toggleBurgerMenu} className="group !p-[14px] !rounded-full">
               <div className="flex flex-col justify-center gap-[8px] w-[16px] h-[16px]">
                 <span

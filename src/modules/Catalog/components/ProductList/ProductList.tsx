@@ -23,7 +23,7 @@ function ProductList({ category, onClickItem }: ProductListProps) {
 
   if (error) {
     return (
-      <p className="text-center mt-[100px] mb-[100px] font-bold text-2xl">
+      <p className="text-center mt-[100px] mb-[100px] font-bold text-2xl md:text-md">
         An error occurred, please try later
       </p>
     );
@@ -31,7 +31,7 @@ function ProductList({ category, onClickItem }: ProductListProps) {
 
   if (products) {
     return (
-      <ul className="grid grid-cols-cards gap-[40px] mb-[100px] max-[768px]:px-[14px] max-sm:px-[19px]">
+      <ul className="grid grid-cols-cards gap-[40px] mb-[100px] lg:px-[14px] md:px-[19px]">
         {products.map((product) => (
           <ProductCard key={product.id} onClick={onClickItem} {...product} />
         ))}

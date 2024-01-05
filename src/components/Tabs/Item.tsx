@@ -16,7 +16,7 @@ export default function Item(props: ItemProps) {
     <li>
       <Button
         onClick={() => onClick(value)}
-        className={`group flex items-center gap-[8px] py-[8px] pl-[8px] pr-[16px] max-sm:pr-[12px] border-borderLight hover:bg-textAccent hover:border-textAccent ${
+        className={`group flex items-center gap-[8px] py-[8px] pl-[8px] pr-[16px] sm:pr-[12px] border-borderLight hover:bg-textAccent hover:border-textAccent ${
           isActive
             ? 'text-textLight !bg-bgContainer !border-bgContainer active:!bg-textDark active:!border-textDark'
             : ''

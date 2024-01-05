@@ -8,7 +8,7 @@ import bgImage from '@/../public/images/promo.jpg';
 
 export default function Promo() {
   return (
-    <section className="relative flex justify-start items-start mb-[100px] py-[100px] px-[100px] text-textLight rounded-[40px] overflow-hidden bg-bgContainer max-xl:px-[60px] max-sm:py-[60px] max-sm:px-[16px]">
+    <section className="relative flex justify-start items-start mb-[100px] py-[100px] px-[100px] text-textLight rounded-[40px] overflow-hidden bg-bgContainer xl:px-[60px] md:py-[60px] md:px-[16px]">
       <div className="relative z-10 max-w-[530px]">
         <Title level={2}>
           <span className="text-textAccent italic">Enjoy</span> premium coffee at our

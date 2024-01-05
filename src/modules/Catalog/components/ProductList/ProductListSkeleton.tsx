@@ -8,7 +8,7 @@ export default function ProductListSkeleton({
   amount = DEFAULT_AMOUNT_OF_ITEMS,
 }: ProductListSkeletonProps) {
   return (
-    <ul className="grid grid-cols-cards gap-[40px] mb-[100px] max-[768px]:px-[14px] max-sm:px-[19px]">
+    <ul className="grid grid-cols-cards gap-[40px] mb-[100px] lg:px-[14px] md:px-[19px]">
       {new Array(amount).fill(amount).map((_, index) => (
         <li
           key={index}
