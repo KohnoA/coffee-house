@@ -80,7 +80,7 @@ export default function Header() {
           </li>
 
           <li className="hidden relative z-30 justify-between lg:block">
-            <Button onClick={toggleBurgerMenu} className="group !p-[14px] !rounded-full">
+            <Button onClick={toggleBurgerMenu} className="group" rounded>
               <div className="flex flex-col justify-center gap-[8px] w-[16px] h-[16px]">
                 <span
                   className={`w-full h-[2px] bg-bgContainer transition-all duration-300 rounded-md group-hover:bg-bgBody ${

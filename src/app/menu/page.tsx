@@ -5,5 +5,5 @@ export default function Menu() {
     <main className="container">
       <Catalog />
     </main>
-  )
+  );
 }

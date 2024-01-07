@@ -23,7 +23,7 @@ function ProductModal({ id, closeModal }: ProductModalProps) {
 
   if (error) {
     return (
-      <p className="text-center mt-[100px] mb-[100px] font-bold text-2xl">
+      <p className="text-center mt-[100px] mb-[100px] font-bold text-2xl md:text-md">
         An error occurred, please try later
       </p>
     );

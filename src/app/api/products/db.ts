@@ -300,6 +300,80 @@ export const PRODUCTS = [
 
   {
     id: 9,
+    name: 'Coffee with whisky',
+    image: '/images/products/coffee-8.jpg',
+    description: 'Fragrant black coffee with whisky and whipped cream',
+    price: '7.00',
+    category: 'coffee',
+    sizes: {
+      s: {
+        size: '200 ml',
+        'add-price': '0.00',
+      },
+      m: {
+        size: '300 ml',
+        'add-price': '0.50',
+      },
+      l: {
+        size: '400 ml',
+        'add-price': '1.00',
+      },
+    },
+    additives: [
+      {
+        name: 'Sugar',
+        'add-price': '0.50',
+      },
+      {
+        name: 'Cinnamon',
+        'add-price': '0.50',
+      },
+      {
+        name: 'Syrup',
+        'add-price': '0.50',
+      },
+    ],
+  },
+
+  {
+    id: 10,
+    name: 'Latte with whisky',
+    image: '/images/products/coffee-7.jpg',
+    description: 'Espresso with frothed milk, whisky and chocolate',
+    price: '6.00',
+    category: 'coffee',
+    sizes: {
+      s: {
+        size: '200 ml',
+        'add-price': '0.00',
+      },
+      m: {
+        size: '300 ml',
+        'add-price': '0.50',
+      },
+      l: {
+        size: '400 ml',
+        'add-price': '1.00',
+      },
+    },
+    additives: [
+      {
+        name: 'Sugar',
+        'add-price': '0.50',
+      },
+      {
+        name: 'Cinnamon',
+        'add-price': '0.50',
+      },
+      {
+        name: 'Syrup',
+        'add-price': '0.50',
+      },
+    ],
+  },
+
+  {
+    id: 11,
     name: 'Moroccan',
     image: '/images/products/tea-1.jpg',
     description:
@@ -337,7 +411,7 @@ export const PRODUCTS = [
   },
 
   {
-    id: 10,
+    id: 12,
     name: 'Ginger',
     image: '/images/products/tea-2.jpg',
     description: 'Original black tea with fresh ginger, lemon and honey',
@@ -374,7 +448,7 @@ export const PRODUCTS = [
   },
 
   {
-    id: 11,
+    id: 13,
     name: 'Cranberry',
     image: '/images/products/tea-3.jpg',
     description: 'Invigorating black tea with cranberry and honey',
@@ -411,7 +485,7 @@ export const PRODUCTS = [
   },
 
   {
-    id: 12,
+    id: 14,
     name: 'Sea buckthorn',
     image: '/images/products/tea-4.jpg',
     description:
@@ -449,7 +523,7 @@ export const PRODUCTS = [
   },
 
   {
-    id: 13,
+    id: 15,
     name: 'Marble cheesecake',
     image: '/images/products/dessert-1.jpg',
     description:
@@ -487,7 +561,7 @@ export const PRODUCTS = [
   },
 
   {
-    id: 14,
+    id: 16,
     name: 'Red velvet',
     image: '/images/products/dessert-2.jpg',
     description: 'Layer cake with cream cheese frosting',
@@ -524,7 +598,7 @@ export const PRODUCTS = [
   },
 
   {
-    id: 15,
+    id: 17,
     name: 'Cheesecakes',
     image: '/images/products/dessert-3.jpg',
     description:
@@ -562,7 +636,7 @@ export const PRODUCTS = [
   },
 
   {
-    id: 16,
+    id: 18,
     name: 'Creme brulee',
     image: '/images/products/dessert-4.jpg',
     description:
@@ -600,7 +674,7 @@ export const PRODUCTS = [
   },
 
   {
-    id: 17,
+    id: 19,
     name: 'Pancakes',
     image: '/images/products/dessert-5.jpg',
     description: 'Tender pancakes with strawberry jam and fresh strawberries',
@@ -637,7 +711,7 @@ export const PRODUCTS = [
   },
 
   {
-    id: 18,
+    id: 20,
     name: 'Honey cake',
     image: '/images/products/dessert-6.jpg',
     description: 'Classic honey cake with delicate custard',
@@ -674,7 +748,7 @@ export const PRODUCTS = [
   },
 
   {
-    id: 19,
+    id: 21,
     name: 'Chocolate cake',
     image: '/images/products/dessert-7.jpg',
     description: 'Cake with hot chocolate filling and nuts with dried apricots',
@@ -711,7 +785,7 @@ export const PRODUCTS = [
   },
 
   {
-    id: 20,
+    id: 22,
     name: 'Black forest',
     image: '/images/products/dessert-8.jpg',
     description:

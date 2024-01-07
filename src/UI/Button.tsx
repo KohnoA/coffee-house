@@ -4,6 +4,7 @@ type ButtonOwnProps<E extends ElementType = ElementType> = {
   className?: string;
   children: ReactNode;
   view?: BUTTON_VIEW;
+  rounded?: boolean; 
   as?: E;
 };
 
@@ -20,6 +21,7 @@ export const enum BUTTON_VIEW {
 export default function Button<E extends ElementType = typeof DEFAULT_ELEMENT>({
   className,
   children,
+  rounded,
   view = BUTTON_VIEW.SECONDARY,
   as,
   ...otherProps
@@ -29,10 +31,10 @@ export default function Button<E extends ElementType = typeof DEFAULT_ELEMENT>({
   return (
     <Element
       {...otherProps}
-      className={`${
+      className={`transition-all ${
         view === BUTTON_VIEW.PRIMARY
-          ? 'py-[20px] px-[78px] bg-bgBody text-textDark transition-colors hover:bg-[#D3C5B9] active:bg-[#BDB1A7]'
-          : 'py-[10px] px-[23px] text-textDark border-2 border-borderDark bg-transparent transition-colors hover:text-textLight hover:bg-bgContainer active:bg-textDark active:border-textDark'
+          ? 'py-[20px] px-[78px] bg-bgBody text-textDark hover:bg-[#D3C5B9] active:bg-[#BDB1A7]'
+          : `${rounded ? 'p-[18px]' : 'py-[10px] px-[23px]' } text-textDark border-2 border-borderDark bg-transparent hover:text-textLight hover:bg-bgContainer active:bg-textDark active:border-textDark`
       } font-semibold inline-block rounded-full ${className ?? ''}`}
     >
       {children}

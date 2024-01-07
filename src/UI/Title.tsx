@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, memo } from 'react';
 
 type HeadingLevelType = 1 | 2 | 3 | 4 | 5;
 type HeadingSize = 1 | 2 | 3;
@@ -14,7 +14,7 @@ interface TitleProps {
 const DEFAULT_HEADING_LVL = 1;
 const DEFAULT_SIZE = 1;
 
-export default function Title({
+function Title({
   children,
   className,
   accent = false,
@@ -33,3 +33,5 @@ export default function Title({
     </TitleElement>
   );
 }
+
+export default memo(Title);

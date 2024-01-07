@@ -16,7 +16,7 @@ export default function Catalog() {
   const pathname = usePathname();
   const router = useRouter();
 
-  const [category, setCategory] = useState(DEFAULT_TAB_VALUE);
+  const [category, setCategory] = useState<string>(DEFAULT_TAB_VALUE);
   const [canShowModal, setCanShowModal] = useState<boolean>(
     searchParams.has(PRODUCT_QUERY_KEY)
   );

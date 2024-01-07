@@ -7,7 +7,7 @@ export default function ArrowRight({ width, height, className }: IconProps) {
       width={width}
       height={height}
       fill="none"
-      className={className}
+      className={className ?? ''}
       viewBox="0 0 20 20"
       stroke="#403F3D"
     >

@@ -17,7 +17,8 @@ function MoveButtons({ changeSlideHandler, activeSlideIndex }: MoveButtonsProps)
   return (
     <>
       <Button
-        className="group absolute top-1/2 -translate-y-[50%] left-1 !py-[18px] !px-[18px] sm:invisible"
+        rounded
+        className="group absolute top-1/2 -translate-y-[50%] left-1 sm:invisible"
         onClick={moveSlideLeft}
       >
         <ArrowRight
@@ -27,7 +28,8 @@ function MoveButtons({ changeSlideHandler, activeSlideIndex }: MoveButtonsProps)
         />
       </Button>
       <Button
-        className="group absolute top-1/2 -translate-y-[50%] right-1 !py-[18px] !px-[18px] sm:invisible"
+        rounded
+        className="group absolute top-1/2 -translate-y-[50%] right-1 sm:invisible"
         onClick={moveSlideRight}
       >
         <ArrowRight
